@@ -3,9 +3,7 @@
  */
 
 import Navigo from 'navigo';
-import {
-    env
-} from 'process';
+import { ENV } from './core/consts';
 
 const Router = {
     router: null,
@@ -13,7 +11,7 @@ const Router = {
         if (!this.router) {
             let rootUrl;
             rootUrl = '/'
-            if (env === 'prod') {
+            if (ENV === 'prod') {
                 rootUrl = `${window.location.protocol}//${window.location.host}`;
             }
             this.router = new Navigo('/', false);
