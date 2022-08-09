@@ -1,7 +1,8 @@
 import {
     apiKey,
     MELDET_EMAIL,
-    routes
+    routes,
+    SENDGRID_API_KEY
 } from "../core/consts"
 import {
     initFirebase
@@ -9,7 +10,6 @@ import {
 import getter from "../helpers/firebaseActions/getter"
 import showError from "../helpers/showError"
 import MeldetPage from "../lib/pages/MeldetPage"
-//require('dotenv').config();
 // error: non-js module file deprecated || when I install sendgrid
 //import sgmail from "@sendgrid/mail"
 
@@ -48,7 +48,7 @@ const sendMail = async () => {
         /**
          * sendgrid email
          */
-        // sgmail.setApiKey(process.env.SENDGRID_API_KEY);
+        //sgmail.setApiKey(SENDGRID_API_KEY);
         // const message = {
         //     to: MELDET_EMAIL,
         //     from: 'tielbody@student.arteveldehs.be',

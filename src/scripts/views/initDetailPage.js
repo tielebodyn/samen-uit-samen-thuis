@@ -1,4 +1,5 @@
 import {
+    MAPBOX_TOKEN,
     routes
 } from "../core/consts";
 import {
@@ -9,7 +10,6 @@ import logout from "../helpers/logout";
 import setProfileImage from "../helpers/setProfileImage";
 import Elements from "../lib/Elements";
 import DetailPage from "../lib/pages/DetailPage"
-require('dotenv').config()
 const initDetailPage = (navigoData) => {
     const {
         data
@@ -33,7 +33,7 @@ const createMap = async (eventId) => {
             const coords = pos.coords;
             const long = coords.longitude;
             const lat = coords.latitude
-            mapboxgl.accessToken = process.env.MAPBOX_TOKEN;
+            mapboxgl.accessToken = MAPBOX_TOKEN;
             const map = new mapboxgl.Map({
                 container: 'map',
                 style: 'mapbox://styles/mapbox/streets-v11',
