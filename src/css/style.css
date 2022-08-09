@@ -747,7 +747,7 @@ header {
 }
 
 .bg-container {
-  background-image: url("../../../app/src/images/bg_image_2.png");
+   background-image: url("../images/bg_image_2.png"); 
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -876,7 +876,7 @@ header {
 
 .additional-info-wrapper {
   height: 70vh;
-  background-image: url("/images/bg_image_2.png");
+  background-image: url("../images/bg_image_2.png"); 
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -909,7 +909,7 @@ header {
 }
 
 .edit-profile-body {
-  background-image: url("../../../app/src/images/bg_image_2.png");
+  background-image: url("../images/bg_image_2.png"); 
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
