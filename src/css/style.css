@@ -645,7 +645,6 @@ header {
 .live-card {
   width: 300px;
   height: 150px;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../../app/src/images/backdrop.jpg");
   padding: 10px;
   align-items: center;
   border: 5px solid #D01E1E;
@@ -662,7 +661,6 @@ header {
 .invited-card {
   width: 310px;
   height: 160px;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../../app/src/images/backdrop.jpg");
   padding: 0px 10px 10px 10px;
 }
 .invited-card h2 {
@@ -679,7 +677,6 @@ header {
 .card {
   width: 310px;
   height: 160px;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../../app/src/images/backdrop.jpg");
   padding: 0px 10px 10px 10px;
 }
 .card h2 {
