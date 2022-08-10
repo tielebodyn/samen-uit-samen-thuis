@@ -27,12 +27,9 @@ const initDiscussion = (data) => {
  * load discussion page with messages
  */
 const loadDiscussionpage = async (navigoData) => {
-    const db = firebase.firestore()
     const {
         id
     } = navigoData;
-    console.log(navigoData.id)
-
     const docData = await getter({
         collection: "discussions",
         docId: id
@@ -60,16 +57,13 @@ const createMessage = async (navigoData, inputFieldValue) => {
         const db = firebase.firestore()
         const user = firebase.auth().currentUser;
 
-        const {
-            data
-        } = navigoData;
         const docData = await getter({
             collection: "discussions",
-            docId: data.id
+            docId: navigoData.id
         })
         const eventData = await getter({
             collection: "events",
-            docId: data.id
+            docId: navigoData.id
         })
         const currentUser = await getter({
             collection: "users",
@@ -103,7 +97,7 @@ const createMessage = async (navigoData, inputFieldValue) => {
         }
 
         // upload message to firebase
-        await db.collection("discussions").doc(data.id).set({
+        await db.collection("discussions").doc(navigoData.id).set({
             messages: uploadMessages,
             title: eventData.title
 
