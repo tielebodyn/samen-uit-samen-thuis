@@ -71,11 +71,11 @@ const LoginPage = () => {
 
 
     const googleImg = Elements.createImage({
-        src:'./images/logo_google.png',
+        src:require('../../../images/logo_google.png'),
         alt: 'google logo'
     })
     const facebookImg = Elements.createImage({
-        src: './images/logo_facebook.png',
+        src:require('../../../images/logo_facebook.png'),
         alt: 'facebook logo'
     })
     const googleBtn = Elements.createButton({

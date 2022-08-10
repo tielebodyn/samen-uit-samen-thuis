@@ -23,7 +23,7 @@ const divFlexCenter = Elements.createDiv({htmlClass1:'flex-center'})
 divFlexBetween2.append(tag, divFlexCenter)
 
 const users = Elements.createParagraph({textContent: docData.acceptedUsers.length.toString()})
-const userIcon = Elements.createImage({src:'/user_icon.281af12d.svg', alt:'user icon'})
+const userIcon = Elements.createImage({src:require('../../images/user_icon.svg'), alt:'user icon'})
 divFlexCenter.append(users, userIcon)
 
 return {divWrapper, acceptImg, denyImg}

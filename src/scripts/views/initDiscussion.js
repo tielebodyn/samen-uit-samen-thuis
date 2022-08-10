@@ -30,11 +30,10 @@ const initDiscussion = (data) => {
 const loadDiscussionpage = async (navigoData) => {
     const db = firebase.firestore()
     const {
-        data
-    } = navigoData;
-    const {
         id
-    } = data
+    } = navigoData;
+    console.log(navigoData.id)
+
     const docData = await getter({
         collection: "discussions",
         docId: id

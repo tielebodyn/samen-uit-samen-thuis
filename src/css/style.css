@@ -744,7 +744,7 @@ header {
 }
 
 .bg-container {
-   background-image: url("../images/bg_image_2.png"); 
+  background-image: url("../images/bg_image_2.png"); 
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

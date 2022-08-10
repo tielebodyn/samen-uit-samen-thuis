@@ -44,7 +44,7 @@ const Dashboard = () => {
         cardFilter.append(btn)
     })
     const addImg = Elements.createImage({
-        src: '"./images/add_round.png'
+        src: require('../../../images/add_round.png')
     })
     const createNewEventBtn = Elements.createButton({
         htmlClass1: 'new-event-btn',
