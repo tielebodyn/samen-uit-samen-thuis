@@ -15,7 +15,6 @@ import DiscussionPage from "../lib/pages/DiscussionPage"
 const initDiscussion = (data) => {
     // init firebase
     initFirebase()
-
     // when auth is initialized
     firebase.auth().onAuthStateChanged((firebaseUser) => {
         onAuthStateChanged(firebaseUser)

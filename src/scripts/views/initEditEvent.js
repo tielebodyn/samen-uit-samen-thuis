@@ -17,9 +17,6 @@ import showError from "../helpers/showError";
 import EditEvent from "../lib/pages/EditEvent";
 
 const initEditEvent = (navigoData) => {
-    const {
-        data
-    } = navigoData;
     // initialize firebase
     initFirebase();
     firebase.auth().onAuthStateChanged(async (firebaseUser) => {
@@ -27,7 +24,7 @@ const initEditEvent = (navigoData) => {
         firebaseUser && checkUserData(firebaseUser)
         const eventData = await getter({
             collection: ("events"),
-            docId: data.id
+            docId: navigoData.id
         })
         EditEvent(eventData)
         displayImage('eventImageAddNew', 'chooseFileNewEvent')
@@ -37,7 +34,7 @@ const initEditEvent = (navigoData) => {
         let logoutBtn = document.getElementById('logout-btn');
         const saveChangesBtn = document.getElementById('saveChanges')
         // add events
-        saveChangesBtn.addEventListener('click', () => editEvent(data))
+        saveChangesBtn.addEventListener('click', () => editEvent(navigoData))
         logoutBtn.addEventListener('click', logout)
         arrowBack.addEventListener('click', back)
     })
@@ -70,6 +67,7 @@ const isOwner = async (data) => {
  * edit event
  */
 const editEvent = (navigoData) => {
+
     const db = firebase.firestore()
     const user = firebase.auth().currentUser;
     //get input values

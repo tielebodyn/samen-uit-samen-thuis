@@ -11,16 +11,13 @@ import setProfileImage from "../helpers/setProfileImage";
 import Elements from "../lib/Elements";
 import DetailPage from "../lib/pages/DetailPage"
 const initDetailPage = (navigoData) => {
-    const {
-        data
-    } = navigoData
     // init firebase
     initFirebase()
     // wait for auth to initialize
     firebase.auth().onAuthStateChanged((firebaseUser) => {
         onAuthStateChanged(firebaseUser)
         firebaseUser && checkUserData(firebaseUser)
-        loadDetailData(data)
+        loadDetailData(navigoData.id)
     })
 }
 /*
@@ -59,11 +56,13 @@ const createMap = async (eventId) => {
  * check is current event is live
  */
 const isLive = async (eventId) => {
+
     let isLive = false;
     const db = firebase.firestore()
     const event = await db.collection('events').doc(eventId).get();
     const time = new Date(getCurrentTime());
     const docData = event.data();
+
     const {
         startDate,
         endDate
@@ -89,7 +88,7 @@ const removeEvent = async (data) => {
 const isOwner = async (data) => {
     try {
         const db = await firebase.firestore()
-        const eventDoc = await db.collection("events").doc(data.id).get();
+        const eventDoc = await db.collection("events").doc(data).get();
         const eventUserId = eventDoc.data().userId
         const userId = firebase.auth().currentUser.uid
         if (userId === eventUserId) return true
@@ -104,9 +103,9 @@ const isOwner = async (data) => {
 const loadDetailData = async (navigoData) => {
     const owner = await isOwner(navigoData)
     const db = firebase.firestore()
-    const doc = await db.collection("events").doc(navigoData.id).get();
+    const doc = await db.collection("events").doc(navigoData).get();
     const docData = await doc.data()
-    const live = await isLive(navigoData.id)
+    const live = await isLive(navigoData)
     // load detail page with data
     DetailPage(owner, live, docData)
     // set profile image
@@ -174,11 +173,11 @@ const loadDetailData = async (navigoData) => {
     // add events to buttons
     owner && removeEventBtn.addEventListener('click', () => removeEvent(navigoData))
     owner && inviteUserBtn.addEventListener('click', () => inviteUser(navigoData))
-    owner && editEventBtn.addEventListener('click', () => location.replace(`${routes.editEvent}/${navigoData.id}`))
+    owner && editEventBtn.addEventListener('click', () => location.replace(`${routes.editEvent}/${navigoData}`))
     meldetBtn.addEventListener('click', () => location.replace(routes.meldet))
     arrowBack.addEventListener('click', back)
     logoutBtn.addEventListener('click', logout)
-    createMap(navigoData.id)
+    createMap(navigoData)
   
 
 }
@@ -198,20 +197,20 @@ const inviteUser = async (navigoData) => {
     if (!userInvited) return alert('user not found')
     const userData = userInvited.data()
     if (!userData.invitedEvents) await db.collection("users").doc(userInvited.id).set({
-        invitedEvents: [navigoData.id]
+        invitedEvents: [navigoData]
     }, {
         merge: true
     });
     if (userData.invitedEvents) await db.collection("users").doc(userInvited.id).set({
-        invitedEvents: [...userData.invitedEvents, navigoData.id]
+        invitedEvents: [...userData.invitedEvents, navigoData]
     }, {
         merge: true
     });
 
-    const doc = await db.collection("events").doc(navigoData.id).get();
+    const doc = await db.collection("events").doc(navigoData).get();
     const docData = doc.data()
     const invitedUsers = docData.invitedUsers
-    await db.collection("events").doc(navigoData.id).set({
+    await db.collection("events").doc(navigoData).set({
         invitedUsers: [...invitedUsers, userInvited.id]
     }, {
         merge: true
