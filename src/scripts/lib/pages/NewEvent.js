@@ -29,7 +29,8 @@ const NewEvent = () => {
     })
     const img = Elements.createImage({
         id: 'eventImageAddNew',
-        alt: 'event image'
+        alt: 'event image',
+        src: require('../../../images/event_image_default.jpg')
     })
     const chooseFileBtn = Elements.createButton({
         htmlClass1: 'primary-btn',

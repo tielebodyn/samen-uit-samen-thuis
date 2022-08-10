@@ -187,7 +187,7 @@ const loadDetailData = async (navigoData) => {
 const inviteUser = async (navigoData) => {
     const db = firebase.firestore()
     const inputUser = prompt('email of user')
-    const invitedUser = await db.collection("users").where("email", "==", inputUser).get()
+    const invitedUser = await db.collection("users").where("email", "==", inputUser.toLowerCase()).get()
 
     let userInvited;
     invitedUser.forEach(user => {

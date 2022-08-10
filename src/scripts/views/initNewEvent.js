@@ -57,7 +57,7 @@ const createEvent = () => {
     const startDateInput  = document.getElementById('startOnNewEvent').value
     const endDateInput  = document.getElementById('endOnNewEvent').value
     const { serverTimestamp } = firebase.firestore.FieldValue;
-    if (titleInput && descriptioninput && streetInput && numberInput && postalInput && cityInput && tagInput && startDateInput && endDateInput && uploadedImageFile) {
+    if (titleInput && descriptioninput && streetInput && numberInput && postalInput && cityInput && tagInput && startDateInput && endDateInput) {
         (async () => {
             try {
                 let fileName;
@@ -83,7 +83,7 @@ const createEvent = () => {
                     endDate: endDateInput,
                     createdOn: serverTimestamp(),
                     editedOn: serverTimestamp(),
-                    eventImageURL: eventImageURL
+                    eventImageURL: eventImageURL || require('../../images/event_image_default.jpg')
                 })
                 // redirect to dashboard
                 location.replace(routes.dashboard)

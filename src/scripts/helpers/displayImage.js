@@ -6,7 +6,6 @@ let uploadedImageFile;
  * display profile image
  */
 const displayImage = (imgElementId, buttonId) => {
-    
     document.getElementById(buttonId).addEventListener('click', () => {
         const input = document.createElement('input')
         input.type = 'file'
