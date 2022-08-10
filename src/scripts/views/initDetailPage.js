@@ -118,7 +118,7 @@ const loadDetailData = async (navigoData) => {
     /**
      * get users 
      */
-    const getUsers = (arr) => {
+    const getUsers = async (arr) => {
         arr.forEach(async (item) => {
             const doc = await db.collection('users').doc(item).get();
             const docData = doc.data();
@@ -133,7 +133,7 @@ const loadDetailData = async (navigoData) => {
             const img = Elements.createImage({
                 htmlClass1: 'profile-image--nohover',
                 alt: 'profile image',
-                src: docData.profileImageURL
+                src: docData.profileImageURL || require('../../images/default_profile_image.png')
             })
             const p = Elements.createParagraph({
                 textContent: docData.email

@@ -75,12 +75,14 @@ const NewEvent = () => {
     const startDateInput = Input({
         textContent: 'start date',
         inputId: 'startOnNewEvent',
-        inputType: 'datetime-local'
+        inputType: 'datetime-local',
+        value:'2022-07-01T12:00'
     })
     const endDateInput = Input({
         textContent: 'end date',
         inputId: 'endOnNewEvent',
-        inputType: 'datetime-local'
+        inputType: 'datetime-local',
+        value:'2022-07-01T12:00'
     })
 
     const tagSelect = document.createElement('select');

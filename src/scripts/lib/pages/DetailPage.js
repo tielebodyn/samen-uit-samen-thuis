@@ -101,7 +101,7 @@ const DetailPage = (owner, live, docData) => {
 
     if (owner) {
         const addImg = Elements.createImage({
-            src: '/add_round.61530307.png'
+            src: require('../../../images/add_round.png')
         })
         const inviteUserBtn = Elements.createButton({
             htmlClass1: 'new-event-btn',

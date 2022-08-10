@@ -13,8 +13,8 @@ const title = Elements.createHeader({size:'h2', textContent:docData.title})
 const adressWrapper = Elements.createDiv({})
 divFlexBetween.append(title,adressWrapper)
 
-const acceptImg  = Elements.createImage({src:'/accept_button.9c2f63d9.svg', alt:'accept button'})
-const denyImg  = Elements.createImage({src:'/deny_button.a480772f.svg', alt:'deny button'})
+const acceptImg  = Elements.createImage({src:require('../../images/accept_button.svg'), alt:'accept button'})
+const denyImg  = Elements.createImage({src:require('../../images/deny_button.svg'), alt:'deny button'})
 
 adressWrapper.append(acceptImg, denyImg)
 
