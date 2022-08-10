@@ -93,10 +93,10 @@ const DetailPage = (owner, live, docData) => {
         div.append(img, p)
         return div
     }
-    const item1 = createDetailElement('/detail_icon.8086ff2f.svg', docData.description)
-    const item2 = createDetailElement('/location_icon.4b6e82f0.svg', `${docData.street}, ${docData.streetNumber} ${docData.city}`)
-    const item3 = createDetailElement('/time_icon.7f1ad3f2.svg', `starts: ${docData.startDate.replace('T', ' ')} \n ends: ${docData.endDate.replace('T', ' ')}`)
-    const item4 = createDetailElement('/edit_icon.bff93f3d.svg', `created: ${createdTime} \n edited: ${editedTime}`)
+    const item1 = createDetailElement(require('../../../images/detail_icon.svg'), docData.description)
+    const item2 = createDetailElement(require('../../../images/location_icon.svg'), `${docData.street}, ${docData.streetNumber} ${docData.city}`)
+    const item3 = createDetailElement(require('../../../images/time_icon.svg'), `starts: ${docData.startDate.replace('T', ' ')} \n ends: ${docData.endDate.replace('T', ' ')}`)
+    const item4 = createDetailElement(require('../../../images/edit_icon.svg'), `created: ${createdTime} \n edited: ${editedTime}`)
     detailItemWrapper.append(item1, item2, item3, item4)
 
     if (owner) {
