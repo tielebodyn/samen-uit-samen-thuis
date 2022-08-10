@@ -14,9 +14,9 @@ const displayImage = (imgElementId, buttonId) => {
         input.onchange = (e) => {
             files = e.target.files
             uploadedImageFile = files[0];
-            if (files[0].size > 200000) {
+            if (files[0].size > 10000000) {
                 showError({
-                    message: `maximum file size is 200 KB`
+                    message: `maximum file size is 10 MB`
                 })
                 return null
             }
